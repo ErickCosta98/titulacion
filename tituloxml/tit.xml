@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TituloElectronico xmlns="https://www.siged.sep.gob.mx/titulos/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" folioControl="20121023SICERT0151610X0042086X00013" xsi:schemaLocation="https://www.siged.sep.gob.mx/titulos/ schema.xsd">
   <FirmaResponsables>
-    <FirmaResponsable nombre="hector" primerApellido="lopez" segunApellido="lopez" curp="lolhcs970710" idCargo="1" cargo="asdfasdf" abrTitulo="asdfasdf" sello="asdfasdf" certificadoResponsable="asdf" noCertificadoResponsable="asdf"></FirmaResponsable>
-    <FirmaResponsable nombre="a" primerApellido="a" segunApellido="a" curp="a" idCargo="2" cargo="asdfasdf" abrTitulo="asdf" sello="asdf" certificadoResponsable="asdfasdf" noCertificadoResponsable="asdfasdf"></FirmaResponsable>
+    <FirmaResponsable nombre="hector" primerApellido="lopez" segunApellido="lopez" curp="lolhcs970710" idCargo="1" cargo="DIRECTOR" abrTitulo="sr" sello="sdfsfsdf" certificadoResponsable="sdfsfsfsf" noCertificadoResponsable="sdfsdfsdfsdf"></FirmaResponsable>
+    <FirmaResponsable nombre="a" primerApellido="a" segunApellido="a" curp="a" idCargo="2" cargo="sdf" abrTitulo="sdf" sello="sdf" certificadoResponsable="fsdf" noCertificadoResponsable="sdfsdf"></FirmaResponsable>
   </FirmaResponsables>
   <Institucion/>
   <Carrera/>

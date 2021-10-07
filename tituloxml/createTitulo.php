@@ -11,12 +11,19 @@ $header = [
 $consulta = new Titulo();
 
 $attribute_array = $consulta->getResponsables();
-
-echo json_encode($attribute_array);
+$institucion = $consulta->getInstitucion();
+$carrera = $consulta->getCarrera();
+$profesionista = $consulta->getProfesionista();
+$expedicion = $consulta->getExpedicion();
+echo json_encode($expedicion);
+// print_r($carrera);
+// echo json_encode($carrera[0]);
+// echo json_encode($attribute_array);
+// echo json_encode($institucion[0]['cveInstitucion']);
 
 
 $xml = new XMLWriter();
-$xml->openUri("tit.xml");
+$xml->openUri("php://output");
 // El método de salida también se puede establecer en una dirección de archivo xml y directamente en un archivo
 $xml->setIndentString('  ');
 $xml->setIndent(true);
@@ -47,13 +54,27 @@ $xml->startElement('FirmaResponsables');
 
 $xml->endElement();// nodo FirmaResponsables
 $xml->startElement('Institucion');
+$xml->writeAttribute('cveInstitucion',$institucion[0]['cveInstitucion']);
+$xml->writeAttribute('nombreInstitucion',$institucion[0]['nombreInstitucion']);
 $xml->endElement();//nodo Institucion
+
 $xml->startElement('Carrera');
+foreach ($carrera[0] as $key => $value) {
+     $xml->writeAttribute($key,$value);
+
+}
 $xml->endElement();//nodo Carrera
+
 $xml->startElement('Profesionista');
+foreach ($profesionista[0] as $key => $value) {
+    $xml->writeAttribute($key,$value);
+
+}
 $xml->endElement();//nodo Profesionista
+
 $xml->startElement('Expedicion');
 $xml->endElement();//nodo Expedicion
+
 $xml->startElement('Antecedente');
 $xml->endElement();//nodo Antecedente
 

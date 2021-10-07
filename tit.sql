@@ -237,14 +237,14 @@ INSERT INTO `persona` (`id_persona`, `curp`, `nombre`, `primer_apellido`, `segun
 
 -- Volcando estructura para tabla titulacion.responsable
 CREATE TABLE IF NOT EXISTS `responsable` (
-  `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
-  `cargo` varchar(250) DEFAULT NULL,
+  `id_responsable` int(11) NOT NULL AUTO_INCREMENT,
   `abr_titulo` varchar(250) DEFAULT NULL,
   `sello` longtext DEFAULT NULL,
   `certificado_responsable` varchar(250) DEFAULT NULL,
   `no_certificado` varchar(250) DEFAULT NULL,
   `id_persona` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_cargo`),
+  `id_cargo`  int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_responsable`),
   KEY `FK_responsable_persona` (`id_persona`),
   CONSTRAINT `FK_responsable_persona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id_persona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
