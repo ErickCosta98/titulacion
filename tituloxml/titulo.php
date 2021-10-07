@@ -22,7 +22,13 @@ class Titulo
                     'nombre'=>$row['nombre'],
                     'primerApellido'=>$row['primer_apellido'],
                     'segunApellido'=>$row['segundo_apellido'],
-                    'curp'=>$row['curp']
+                    'curp'=>$row['curp'],
+                    'idCargo'=>$row['id_cargo'],
+                    'cargo'=>$row['cargo'],
+                    'abrTitulo'=>$row['abr_titulo'],
+                    'sello'=>$row['sello'],
+                    'certificadoResponsable'=>$row['certificado_responsable'],
+                    'noCertificadoResponsable'=>$row['no_certificado']
             ] ;
             array_push($items, $item);
         }

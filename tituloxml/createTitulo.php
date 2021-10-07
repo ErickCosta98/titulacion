@@ -13,32 +13,7 @@ $consulta = new Titulo();
 $attribute_array = $consulta->getResponsables();
 
 echo json_encode($attribute_array);
-// [
-//     'uno'=>[
-//         'size'=>'uno',
-//         'total'=>'uno',
-//     ],
-//     'dos'=>[
-//         'size'=>'uno2',
-//         'total'=>'un2o',
-//     ],
-//     'd2os'=>[
-//         'size'=>'uno2',
-//         'total'=>'un2o',
-//     ],
-//     'd3os'=>[
-//         'size'=>'uno2',
-//         'total'=>'un2o',
-//     ],
-//     'd4os'=>[
-//         'size'=>'uno2',
-//         'total'=>'un2o',
-//     ],
-//     'd5os'=>[
-//         'size'=>'uno2',
-//         'total'=>'un2o',
-//     ]
-// ];
+
 
 $xml = new XMLWriter();
 $xml->openUri("tit.xml");
