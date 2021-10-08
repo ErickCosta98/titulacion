@@ -15,7 +15,9 @@ $institucion = $consulta->getInstitucion();
 $carrera = $consulta->getCarrera();
 $profesionista = $consulta->getProfesionista();
 $expedicion = $consulta->getExpedicion();
-echo json_encode($expedicion);
+$antecedente = $consulta->getAntecedente();
+// echo json_encode($antecedente);
+// echo json_encode($expedicion);
 // print_r($carrera);
 // echo json_encode($carrera[0]);
 // echo json_encode($attribute_array);
@@ -35,7 +37,7 @@ $xml->startElement('TituloElectronico');
 foreach ($header as $key => $value) {
     $xml->writeAttribute($key,$value);
 
-}
+}//Header xml
 $xml->startElement('FirmaResponsables');
 // for ($i=0; $i < count($attribute_array) ; $i++) {
     foreach ($attribute_array as $key => $value) {
@@ -73,15 +75,23 @@ foreach ($profesionista[0] as $key => $value) {
 $xml->endElement();//nodo Profesionista
 
 $xml->startElement('Expedicion');
+foreach ($expedicion[0] as $key => $value) {
+    $xml->writeAttribute($key,$value);
+
+}
 $xml->endElement();//nodo Expedicion
 
 $xml->startElement('Antecedente');
+foreach ($antecedente[0] as $key => $value) {
+    $xml->writeAttribute($key,$value);
+
+}
 $xml->endElement();//nodo Antecedente
 
 $xml->endElement(); // nodo TituloElectronico
 $xml->endDocument();
 
-// header('Content-Type: text/xml');
+header('Content-Type: text/xml');
 
 $xml->flush();
 

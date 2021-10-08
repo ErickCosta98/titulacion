@@ -94,19 +94,45 @@ class Titulo
 
     public function getExpedicion(){
         $items = [];
-        $query = $this->conexion->conn()->prepare('SELECT * FROM expedicion WHERE id_expedicion = 1');
+        $query = $this->conexion->conn()->prepare('SELECT expedicion.*,entidad_federativa.entidad_federativa FROM expedicion INNER JOIN entidad_federativa  ON id_expedicion = 1 AND expedicion.id_entidad_federativa=entidad_federativa.id_entidad');
         $query->execute();
-        $items = $query->fetchAll(PDO::FETCH_ASSOC);
-        // while ($row = $query->fetch()) {
-        //     $item = [
-        //         'curp'=>$row['curp'],
-        //         'nombre'=>$row['nombre'],
-        //         'primerApellido'=>$row['primer_apellido'],
-        //         'segunApellido'=>$row['segundo_apellido'],
-        //         'correoElectronico'=>$row['correo_electronico']
-        //     ] ;
-        //     array_push($items, $item);
-        // }
+        // $items = $query->fetchAll(PDO::FETCH_ASSOC);
+        while ($row = $query->fetch()) {
+            $item = [
+                'fechaExpedicion'=>$row['fecha_expedicion'],
+                'idModalidadTitulacion'=>$row['id_modalidad_titulacion'],
+                'modalidadTitulacion'=>$row['modalidad'],
+                'fechaExamenProfesional'=>$row['fecha_examen_profesional'],
+                'cumplioServicioSocial'=>$row['cumplio_servicio_social'],
+                'idFundamentoLegalServicioSocial'=>$row['id_fundamento_legal_servicio_social'],
+                'fundamentoLegalServicioSocial'=>$row['fundamento_legal_servicio_social'],
+                'idEntidadFederativa'=>$row['id_entidad_federativa'],
+                'entidadFederativa'=>$row['entidad_federativa']
+            ] ;
+            array_push($items, $item);
+        }
+        
+        return $items;
+
+    }
+
+    public function getAntecedente(){
+        $items = [];
+        $query = $this->conexion->conn()->prepare('SELECT antecedente.*,entidad_federativa.entidad_federativa,estudio_antecedente.tipo_estudio_antecedente FROM antecedente INNER JOIN entidad_federativa INNER JOIN estudio_antecedente  ON  antecedente.id_entidad_federativa=entidad_federativa.id_entidad AND antecedente.id_tipoAntecedente = estudio_antecedente.id_tipo_estudio_antecedente WHERE antecedente.id_persona=1');
+        $query->execute();
+        // $items = $query->fetchAll(PDO::FETCH_ASSOC);
+        while ($row = $query->fetch()) {
+            $item = [
+                'institucionProcedencia'=>$row['institucion_procedencia'],
+                'idTipoEstudioAntecedente'=>$row['id_tipoAntecedente'],
+                'tipoEstudioAntecedente'=>$row['tipo_estudio_antecedente'],
+                'idEntidadFederativa'=>$row['id_entidad_federativa'],
+                'entidadFederativa'=>$row['entidad_federativa'],
+                'fechaInicio'=>$row['fecha_inicio'],
+                'fechaTerminacion'=>$row['fecha_termino'],
+            ] ;
+            array_push($items, $item);
+        }
         
         return $items;
 
