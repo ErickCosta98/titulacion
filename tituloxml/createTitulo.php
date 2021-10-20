@@ -16,7 +16,7 @@ $carrera = $consulta->getCarrera();
 $profesionista = $consulta->getProfesionista();
 $expedicion = $consulta->getExpedicion();
 $antecedente = $consulta->getAntecedente();
-// echo json_encode($antecedente);
+// echo json_encode($antecede55nte);4dm1nr3d2021.   id 180
 // echo json_encode($expedicion);
 // print_r($carrera);
 // echo json_encode($carrera[0]);
